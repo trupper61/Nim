@@ -37,6 +37,7 @@ namespace Nim
                 streichholzNeu.Top = 15;
                 streichholzNeu.Left = 30 * i;
                 this.Controls.Add(streichholzNeu);
+                turnSwitch.Enabled = false;
             }
         }
 
@@ -56,18 +57,18 @@ namespace Nim
                 listButton.RemoveAt(listButton.Count - 1);
 
                 this.Controls.Remove(lastButton);
+                if (anzahlClicks == 3)
+                {
+                    btnNim.Enabled = false;
+                }
 
             }
-            else if (listButton.Count == 1)
+            else
             {
                 MessageBox.Show("Du hast verloren");
                 return;
             }
-            else
-            {
-                MessageBox.Show("Du hast keine Züge mehr");
-            }
-            
+
         }
 
 
@@ -76,7 +77,7 @@ namespace Nim
             Random rand = new Random();
             int comClicks = rand.Next(1, 3);
 
-            while (comClicks >= 0)
+            while (comClicks > 0)
             {
                 Button lastButton = listButton[listButton.Count - 1];
                 listButton.RemoveAt(listButton.Count - 1);
@@ -101,6 +102,14 @@ namespace Nim
             computer();
             anzahlClicks = 0;
             btnNim.Enabled = true;
+        }
+
+        private void retry_Click(object sender, EventArgs e)
+        {
+            anzahlStreichhoelzer = 15;
+            anzahlClicks = 0;
+            btnNim.Enabled = true;
+            streichhoelzerListe();
         }
     }
 }

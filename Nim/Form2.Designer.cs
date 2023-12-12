@@ -30,6 +30,7 @@
         {
             btnNim = new Button();
             turnSwitch = new Button();
+            retry = new Button();
             SuspendLayout();
             // 
             // btnNim
@@ -52,11 +53,22 @@
             turnSwitch.UseVisualStyleBackColor = true;
             turnSwitch.Click += turnSwitch_Click;
             // 
+            // retry
+            // 
+            retry.Location = new Point(12, 392);
+            retry.Name = "retry";
+            retry.Size = new Size(94, 29);
+            retry.TabIndex = 2;
+            retry.Text = "Retry";
+            retry.UseVisualStyleBackColor = true;
+            retry.Click += retry_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(retry);
             Controls.Add(turnSwitch);
             Controls.Add(btnNim);
             Name = "Form2";
@@ -69,5 +81,6 @@
 
         private Button btnNim;
         private Button turnSwitch;
+        private Button retry;
     }
 }
