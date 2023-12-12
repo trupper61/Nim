@@ -49,7 +49,7 @@ namespace Nim
         private void btnNim_Click(object sender, EventArgs e)
         {
             turnSwitch.Enabled = true;
-            if (listButton.Count > 0 && anzahlClicks < 3)
+            if (listButton.Count > 1 && anzahlClicks < 3)
             {
                 anzahlClicks++;
                 Button lastButton = listButton[listButton.Count - 1];
@@ -58,9 +58,10 @@ namespace Nim
                 this.Controls.Remove(lastButton);
 
             }
-            else if (listButton.Count == 0)
+            else if (listButton.Count == 1)
             {
                 MessageBox.Show("Du hast verloren");
+                return;
             }
             else
             {
@@ -86,6 +87,7 @@ namespace Nim
             if (listButton.Count == 0)
             {
                 MessageBox.Show("Du hast gewonnen");
+                return;
             }
             else
             {
